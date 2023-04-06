@@ -1,5 +1,0 @@
-#!/bin/bash
-sed -i '3i \\tlocation \/hbnb_static\/ \{\
-\t\talias \/data\/web_static\/current\/;\
-\t\tautoindex off;\
-\t\}' ans
