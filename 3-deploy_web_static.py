@@ -47,3 +47,6 @@ def do_deploy(archive_path):
     except Exception:
         return False
 
+def deploy():
+    '''Handles everything about deployment'''
+    if do_pack() 
