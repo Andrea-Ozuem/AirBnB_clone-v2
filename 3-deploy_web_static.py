@@ -35,8 +35,8 @@ def do_deploy(archive_path):
         run('tar -xzf /tmp/{} -C /data/web_static/releases/{}/'.format(bname,
             bname[:-4]))
         run('rm /tmp/{}'.format(bname))
-        run('mv /data/web_static/releases/{}/web_static/* /data/web_static/\
-            releases/{}/'.format(bname[:-4], bname[:-4]))
+        run('mv /data/web_static/releases/{}/web_static/* /data/web_static/'
+            'releases/{}/'.format(bname[:-4], bname[:-4]))
         run('rm -rf /data/web_static/releases/{}/web_static/'.format(
              bname[:-4]))
         run('rm -rf /data/web_static/current')
