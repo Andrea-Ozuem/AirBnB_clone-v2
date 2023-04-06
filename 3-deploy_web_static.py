@@ -8,7 +8,6 @@ import os
 
 env.hosts = ['18.209.224.36', '52.72.32.178']
 env.user = "ubuntu"
-
 def do_pack():
     '''generates a .tgz archive from the contents of folder'''
     try:
@@ -24,6 +23,7 @@ def do_pack():
         return None
 
 
+
 def do_deploy(archive_path):
     '''distributes an archive to your web servers'''
     if not os.path.exists(archive_path):
@@ -34,7 +34,7 @@ def do_deploy(archive_path):
         run("mkdir -p  /data/web_static/releases/{}/".format(bname[:-4]))
         run('tar -xzf /tmp/{} -C /data/web_static/releases/{}/'.format(bname,
             bname[:-4]))
-        run('rm -f /tmp/{}'.format(bname))
+        run('rm /tmp/{}'.format(bname))
         run('mv /data/web_static/releases/{}/web_static/* /data/web_static/\
             releases/{}/'.format(bname[:-4], bname[:-4]))
         run('rm -rf /data/web_static/releases/{}/web_static/'.format(
@@ -46,6 +46,7 @@ def do_deploy(archive_path):
         return True
     except Exception:
         return False
+
 
 def deploy():
     '''Handles everything about deployment'''
