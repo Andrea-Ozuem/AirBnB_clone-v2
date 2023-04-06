@@ -20,6 +20,8 @@ def do_deploy(archive_path):
         run('rm /tmp/{}'.format(bname))
         run('mv /data/web_static/releases/{}/web_static/* /data/web_static/\
             releases/{}/'.format(bname[:-4], bname[:-4]))
+        run('rm -rf /data/web_static/releases/{}/web_static/'.format(
+             bname[:-4]))
         run('rm -rf /data/web_static/current')
         run('ln -s /data/web_static/releases/{}/ /data/web_static/current'
             .format(bname[:-4]))
