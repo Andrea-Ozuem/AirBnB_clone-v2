@@ -5,9 +5,10 @@ from datetime import datetime
 from fabric.api import env, run, put, local
 import os
 
-
 env.hosts = ['18.209.224.36', '52.72.32.178']
 env.user = "ubuntu"
+
+
 def do_pack():
     '''generates a .tgz archive from the contents of folder'''
     try:
@@ -21,7 +22,6 @@ def do_pack():
         return tarfile
     except Exception:
         return None
-
 
 
 def do_deploy(archive_path):
@@ -50,4 +50,7 @@ def do_deploy(archive_path):
 
 def deploy():
     '''Handles everything about deployment'''
-    if do_pack() 
+    arch_path = do_pack()
+    if not arch_path:
+        return False
+    return do_deploy(arch_path)
