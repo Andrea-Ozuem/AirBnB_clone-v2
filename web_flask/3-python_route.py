@@ -20,7 +20,13 @@ def hello_HBNH():
 def display_C(text):
     text = escape(text)
     string = text.replace('_', ' ')
-    return f'C {string}'
+    return 'C {}'.format(string)
+
+
+@app.route("/python", strict_slashes=False)
+@app.route('/python/<text>', strict_slashes=False)
+def python(text='is cool'):
+    return 'Python {}'.format(text.replace('_', ' '))
 
 
 if __name__ == '__main__':
