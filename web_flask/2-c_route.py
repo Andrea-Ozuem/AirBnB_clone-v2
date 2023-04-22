@@ -15,11 +15,13 @@ def hello():
 def hello_HBNH():
     return "HBNB"
 
+
 @app.route('/c/<text>', strict_slashes=False)
 def display_C(text):
     text = escape(text)
     string = text.replace('_', ' ')
     return f'C {string}'
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
