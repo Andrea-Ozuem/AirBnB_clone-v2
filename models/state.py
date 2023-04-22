@@ -16,7 +16,7 @@ class State(BaseModel, Base):
     def cities(self):
         '''returns the list of City instances with state_id==State.id'''
         from models.city import City
-        all_city = storage.all(City)
-        rel_cit = [city for city in models.storage.all(City).values()
+        from models import storage
+        rel_cit = [city for city in storage.all(City).values()
                    if self.id == city.state_id]
         return rel_cit
