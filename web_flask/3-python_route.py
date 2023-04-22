@@ -19,9 +19,8 @@ def hello_HBNH():
 @app.route('/c/<text>', strict_slashes=False)
 def display_C(text):
     text = escape(text)
-    print(text)
     string = text.replace('_', ' ')
-    return 'C {}'.format(string)
+    return f'C {string}'
 
 
 if __name__ == '__main__':
