@@ -4,4 +4,4 @@ from models.state import State
 
 stat = State()
 stat.name = "Arizona"
-print(stat.to_dict())
+print(stat.__dict__)
