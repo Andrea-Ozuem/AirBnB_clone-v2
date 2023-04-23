@@ -37,10 +37,7 @@ class BaseModel:
 
     def __str__(self):
         """Returns a string representation of the instance"""
-        my_dict = dict(self.__dict__)
         cls = (str(type(self)).split('.')[-1]).split('\'')[0]
-        if '_sa_instance_state' in my_dict.keys():
-            del my_dict['_sa_instance_state']
         return '[{}] ({}) {}'.format(cls, self.id, self.__dict__)
 
     def save(self):
@@ -52,9 +49,9 @@ class BaseModel:
 
     def to_dict(self):
         """Convert instance into dict format"""
-        if "_sa_instance_state" in self.__dict__:
-            del self.__dict__["_sa_instance_state"]
         dictionary = dict(self.__dict__)
+        if "_sa_instance_state" in dictionary:
+            del dictionary["_sa_instance_state"]
         dictionary['__class__'] = self.__class__.__name__
         if 'created_at' in dictionary:
             dictionary['created_at'] = dictionary['created_at'].isoformat()
