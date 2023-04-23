@@ -10,15 +10,14 @@ app = Flask(__name__)
 
 @app.route('/states_list', strict_slashes=False)
 def states_list():
+    '''Print for each state: id & name'''
     states = list(storage.all(State).values())
-    print(type(states))
-    for state in states:
-        print(state.id)
     return render_template('7-states_list.html', states=states)
 
 
 @app.teardown_appcontext
 def teardown_db(exception):
+    '''Tear down seesion: db'''
     storage.close()
 
 
