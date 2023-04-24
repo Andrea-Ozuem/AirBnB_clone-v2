@@ -24,6 +24,7 @@ def states():
     states = list(storage.all(State).values())
     return render_template('7-states_list.html', states=states)
 
+
 @app.route('/states/<id>', strict_slashes=False)
 def states_id(id):
     '''Return states and cities if id is instates'''
@@ -31,6 +32,7 @@ def states_id(id):
     key = 'State.{}'.format(id)
     state = states.get(key)
     return render_template('9-states.html', state=state)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
