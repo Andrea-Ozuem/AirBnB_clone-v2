@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-'''a script that starts a Flask web application'''
+'''a script that starts a Flask web application has routes for
+states and closes session
+'''
 
 from models import storage
 from models.state import State
