@@ -40,6 +40,16 @@
 
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.popover ul {
+    padding-left: 38px;
+}
+
+.amenities ul {
+    padding-left: 30px;
 }
 
 .locations:hover .popover {
